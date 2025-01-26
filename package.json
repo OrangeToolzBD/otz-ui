@@ -1,0 +1,59 @@
+{
+  "name": "otz-ui",
+  "version": "1.0.0",
+  "description": "This complete ui library for react, react native , expo and nextjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "npx ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src/index.ts --format cjs --dts --clean",
+    "cjs": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint src/**/*.ts --fix"
+  },
+  "bin": {
+    "otz-ui": "dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrangeToolzBD/otz-ui.git"
+  },
+  "directories": {
+    "dist": "dist`"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "react",
+    "native",
+    "react",
+    "nodejs",
+    "nextjs",
+    "cli"
+  ],
+  "author": "Rezaul Karim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OrangeToolzBD/otz-ui/issues"
+  },
+  "homepage": "https://github.com/OrangeToolzBD/otz-ui#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/node": "^22.10.10",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "inquirer": "^12.3.2"
+  }
+}
