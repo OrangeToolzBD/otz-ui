@@ -4,6 +4,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import SETUP_COMMANDS from "./commands/setup-commands";
 import inquirer from "inquirer";
+import { ICON_TYPES } from "./content/types/icon-types";
+import { YoutubeIcon } from "./content/icon/youtubeIcon";
+import { Whatsapp } from "./content/icon/whatsappIcon";
 
 export default class Otz  { 
   constructor(private command:string){}
@@ -45,29 +48,38 @@ export default class Otz  {
           message: 'Type hook path to configure config',
           default: "./otz/icon"
         },
+        {
+          type: 'input',
+          name: 'types_path',
+          message: 'Type typescript types path to configure config',
+          default: "./otz/types"
+        },
       ]);
       await this.creteFolder(ans.components_path);
       await this.creteFolder(ans.hook_path);
       await this.creteFolder(ans.icon_path);
       await this.creteFolder(ans.utils_path);
+      await this.creteFolder(ans.types_path);
+      await this.writeFile(ans.types_path + '/types.ts', ICON_TYPES);
       await this.writeFile('otz.config.json', `${JSON.stringify(ans)}`);
       break;
     }
 
-    // icon command
-    case SVG_COMMANDS.PLUS:{
-      const configInfo = await this.getConfig("icon_path");
-      await this.writeFile(configInfo + "/plus.tsx", `{}`);
+    // icon plus outline 
+    case SVG_COMMANDS.YOUTUBE:{
+      const path = await this.getConfig('icon_path')+'/youtube-icon.tsx';
+      await this.writeFile(path, YoutubeIcon());
       break;
     }
-    case SVG_COMMANDS.PLUS_OUTLINE:
-      console.log("plus svg commands");
+    case SVG_COMMANDS.WHATSAPP:{
+      const path = await this.getConfig('icon_path')+'/whatsapp-icon.tsx';
+      await this.writeFile(path, Whatsapp());
       break;
+    }
     default:
       break;
     }
   }
-
 
   /**
    * @description this function use for creating folder
@@ -104,7 +116,7 @@ export default class Otz  {
   /**
    * @
    */
-  async getConfig (key: "project_type"|"components_path" | 'components_path'|'hook_path'|'icon_path') {
+  async getConfig (key: "project_type"|"components_path" | 'components_path'|'hook_path'|'icon_path'| 'types_path') {
     try {
       const config = await fs.readFile('otz.config.json', 'utf-8');
       if(config) {

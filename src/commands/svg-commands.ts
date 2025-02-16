@@ -1,7 +1,7 @@
 
 const SVG_COMMANDS = {
-  PLUS: "add-plus",
-  PLUS_OUTLINE: "add-outline",
+  YOUTUBE: 'add-youtube',
+  WHATSAPP: 'add-whatsapp'
 } as const;
 
 

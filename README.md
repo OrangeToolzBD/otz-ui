@@ -39,6 +39,7 @@ npx otz-ui init
   - [Typography](#typography)
   - [Form Components](#form-components)
   - [Utility Components](#utility-components)
+- [Icons](#icons)
 - [Hooks](#hooks)
 - [Utility Functions](#utility-functions)
 - [Contributing](#contributing)
@@ -49,6 +50,7 @@ npx otz-ui init
 ---
 
 ## Configuration
+## TODO
 
 ### Theme Setup
 
@@ -81,7 +83,7 @@ npx otz-ui setup vscode
 ---
 
 ## Components
-
+## TODO
 Easily add pre-built UI components to your project:
 
 ### Layout Components
@@ -108,7 +110,7 @@ Easily add pre-built UI components to your project:
   ```
 
 ### Typography
-
+## TODO
 - **Text**:
   ```sh
   npx otz-ui add text
@@ -159,7 +161,7 @@ Easily add pre-built UI components to your project:
 ---
 
 ## Hooks
-
+## TODO
 Add powerful hooks to simplify logic:
 
 - **useTheme**:
@@ -177,7 +179,19 @@ Add powerful hooks to simplify logic:
 
 ---
 
+
+## Icons
+- **Youtube Icon**:
+  ```sh
+  npx otz-ui add youtube
+  ```
+- **Whatsapp Icon**:
+  ```sh
+  npx otz-ui add whatsapp
+  ```
+
 ## Utility Functions
+## TODO
 
 Simplify your development with built-in utilities:
 
